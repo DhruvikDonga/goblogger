@@ -1,0 +1,52 @@
+{{define "yield"}}
+{{template "header" .}}
+<style>
+div.back {
+  background-image:url('./static/image/liquid-cheese.svg');
+  background-size:cover;
+  width:100%;
+  min-height: 100%;  /* Fallback for browsers do NOT support vh unit */
+  min-height: 100vh; /* These two lines are counted as one :-)       */
+
+  display: flex;
+  align-items: center;
+ 
+}
+</style>
+<div class=" position-relative overflow-hidden  text-center back align-items-center align-items-md-center">
+      <div class="col-md-5 p-5 mx-auto my-5 bg-primary rounded" style="color:white">
+
+      <form
+      enctype="multipart/form-data"
+      action="/postregister"
+      method="post">
+      {{.csrfField}}
+          {{template "messages" .}}
+
+    <h1 class="h3 mb-3 fw-normal">Register Contentplay</h1>
+    <div class=" p-2">
+      <input type="text" class="form-control" id="floatingInput" placeholder="name" name="name" required>
+      <label for="floatingInput">Username</label>
+    </div>
+    <div class=" p-2">
+      <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com" name="email"  required>
+      <label for="floatingInput">Email address</label>
+    </div>
+    <div class=" p-2">
+      <input type="password" class="form-control" id="floatingPassword" placeholder="Password" name="password" required>
+      <label for="floatingPassword">Password</label>
+    </div>
+    <div class=" p-2">
+      <input type="password" class="form-control" id="floatingPassword" placeholder="Password" name="confirmpassword" required>
+      <label for="floatingPassword">Confirm Password</label>
+    </div>
+    
+    <input type="submit" class="w-100 btn btn-lg btn-primary btn-outline-light rounded-pill" value="Register"/>
+  </form>
+    
+    </div>
+</div>
+
+{{template "footer" .}}
+
+{{end}}

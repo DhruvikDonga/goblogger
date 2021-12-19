@@ -1,0 +1,78 @@
+
+{{define "yield"}}
+{{template "header" .}}
+
+<style>
+div.back {
+  background-image:url('./static/image/liquid-cheese.svg');
+  background-size:cover;
+  width:100%;
+  min-height: 100%;  /* Fallback for browsers do NOT support vh unit */
+  min-height: 100vh; /* These two lines are counted as one :-)       */
+
+  display: flex;
+  align-items: center;
+ 
+}
+div.rainbow {
+  background-image:url('./static/image/rainbow-blue.svg');
+  background-size:cover;
+  width:100%;
+  min-height: 100%;  /* Fallback for browsers do NOT support vh unit */
+  min-height: 100vh;
+ display: flex;
+  align-items: center;
+}
+
+div.sun {
+  background-image:url('./static/image/sun-glow.svg');
+  background-size:cover;
+  width:100%;
+  min-height: 100%;  /* Fallback for browsers do NOT support vh unit */
+  min-height: 100vh;
+ display: flex;
+  align-items: center;
+}
+</style>
+  <div class=" position-relative overflow-hidden  text-center back align-items-center align-items-md-center">
+  
+    <div class="col-md-5 p-lg-5 mx-auto my-5" style="color:white">
+      <h3 class=" fw-normal">Smart-tab brings<h3><h1 class="display-1 fw-normal"> Contentplay</h1>
+      <p class="lead fw-normal">Leverage current Content managment systems with powerfull backend and analytics for your content coverage</p>
+      <a class="btn btn-outline-light btn-lg rounded-pill" href="#">Explore Tools</a>
+    
+    
+    
+    </div>
+    
+    
+  </div>
+
+<div class="d-md-flex flex-md-equal w-100 min-vh-50">
+  <div class="bg-light mr-md-2 w-100  pt-3 px-3 pt-md-5 px-md-5 text-center overflow-hidden rainbow" style="color:white">
+    <div class="my-3 p-3">
+      <h2 class="display-5">Content management</h2>
+      <p class="lead">for value content.</p>
+      <p>Developing high user experience services with new blend of technology . Increasing the scalabilty of exisiting
+      legacy systems with new <u>techstacks</u> . <b>OneCommerce</b> an ecommerce backend solution to scale and market</p>
+          <a class="btn btn-outline-light rounded-pill m-1" href="#"><b>Explore <u>#Contentplay</u></b></a>
+
+    </div>    
+  </div>
+  <div class="bg-primary mr-md-2 w-100 pt-3 px-3 pt-md-5 px-md-5 text-center text-white overflow-hidden sun">
+    <div class="my-3 py-3">
+      <h2 class="display-5">Contentplay drop ship</h2>
+      <p class="lead">for dropshipping</p>
+ <p>Developing high user experience services with new blend of technology . Increasing the scalabilty of exisiting
+      legacy systems with new <u>techstacks</u> . <b>OneCommerce</b> an ecommerce backend solution to scale and market</p>
+              <a class="btn btn-outline-light rounded-pill m-1" href="#"><b>Explore <u>#Dropship</u></b></a>
+
+    </div>
+  </div>
+</div>
+
+
+
+
+{{template "footer" .}}
+{{end}}

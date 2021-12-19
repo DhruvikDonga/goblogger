@@ -1,0 +1,80 @@
+{{define "yield"}}
+{{template "header" .}}
+<main class="container py-5 my-4">
+<div class="p-0">
+<h1 class="display-1"><b>{{.title}}</b></h1><br>
+        <p><i class="bi bi-calendar3"> {{.Date}}</i></p>
+        <h5 class="blog-post-meta"> by <b style="align:right">{{.Name}}</b>
+        </h5>
+        <p class="text-right">
+        {{if .facebook}}
+         <a class="btn p-0   bi bi-facebook  shadow-none btn-lg" style="color:blue" href="{{.facebook}}"></a>
+         {{end}}
+        {{if .linkedin}}
+        <a class="btn p-1    bi bi-linkedin  shadow-none btn-lg" style="color:blue" href="{{.linkedin}}"></a>
+        {{end}}
+        {{if .twitter}}
+        <a class="btn  p-1   bi bi-twitter shadow-none btn-lg" style="color:blue" href="{{.twitter}}"></a>
+        {{end}}
+        {{if .instagram}}
+        <a class="btn  p-1  bi bi-instagram shadow-none btn-lg" style="color:orange" href="{{.instagram}}"></a>
+        {{end}}
+        {{if .reddit}}
+        <a class="btn   p-1 bi bi-reddit  shadow-none btn-lg" style="color:red" href="{{.reddit}}"></a>
+        {{end}}
+        </p>
+        <h5 class="font-weight-light">{{.description}}</h5>
+        <hr>
+        <img src="../static/image{{.banner}}" class="w-100 img-fluid rounded" alt="Responsive image" >
+        <hr>
+</div>
+<div class="row g-5 d-flex justify-content-center">
+ 
+    <div class="col-md-8">
+      
+
+      <article class="blog-post">
+
+       
+
+              {{.Content}}
+
+        
+      </article>
+    </div>
+    <div class="col-md-3 ">
+      
+        <div class="position-sticky text-center " style="top: 4rem;">
+        <div class=" text-center  py-2 rounded" style="top: 5rem;">
+
+        <b>Like if you love</b>
+        <button class="btn btn-outline-primary btn-floating m-1 rounded-circle bi bi-suit-heart-fill btn-lg"></button>
+        </div>
+        <div class=" text-center  py-2 rounded" style="top: 5rem;">
+
+        <b>Tags</b><br>
+        <a class="btn p-1 mt-1 btn-outline-primary rounded-pill btn-sm"><b>#Contentplay</b></a>
+        <a class="btn p-1 mt-1 btn-outline-primary rounded-pill btn-sm"><b>#Paytm</b></a>
+        <a class="btn p-1 mt-1 btn-outline-primary rounded-pill btn-sm"><b>#IPO</b></a>
+
+        </div>
+        <div class=" text-center  py-2 rounded" style="top: 5rem;">
+        <b>Share it</b><br>
+        <a class="btn p-1   bi bi-facebook  shadow-none btn-lg" style="color:blue"></a>
+        <a class="btn p-1    bi bi-linkedin  shadow-none btn-lg" style="color:blue"></a>
+        <a class="btn p-1    bi bi-twitter shadow-none btn-lg" style="color:blue"></a>
+        <a class="btn p-1    bi bi-whatsapp shadow-none btn-lg" style="color:green"></a>
+        <a class="btn p-1   bi bi-instagram shadow-none btn-lg" style="color:orange"></a>
+        <a class="btn p-1   bi bi-reddit  shadow-none btn-lg" style="color:red"></a>
+        <a class="btn p-1   bi bi-telegram shadow-none btn-lg" style="color:blue"></a>
+        <a class="btn p-1   bi bi-google shadow-none btn-lg" style="color:blue"></a>
+
+        </div>
+        
+        </div>
+    </div>
+    
+</div>
+</main>
+{{template "footer" .}}
+  {{end}}

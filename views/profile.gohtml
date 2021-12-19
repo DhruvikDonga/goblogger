@@ -1,0 +1,73 @@
+{{define "yield"}}
+{{template "adminheader" .}}
+
+<br><br>
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/simplemde/latest/simplemde.min.css">
+<script src="https://cdn.jsdelivr.net/simplemde/latest/simplemde.min.js"></script>
+<style>
+
+
+</style>
+<main class="container py-5 my-4 " style="min-height: 100%;min-height: 100vh;">
+<div class="p-5 bg-light rounded d-row">
+<h4>Welcome {{range .User}}{{.Name}}{{end}}</h4>
+<form method="post" action="/logout" class="p-1">
+    {{ .csrfField }}
+    <input type="submit" class="btn p-2 mt-1 btn-outline-dark rounded-pill right" value="Logout">
+</form>
+
+<br>
+<h5>Blogs written:-{{.blogs}}</h5>
+<hr>
+<h5>Reset Profile</h5>
+  <div class="px-md-4 py-2 mx-md-4">
+    <form method="post" action="/resetprofile" >
+        {{ .csrfField }}
+        {{template "messages" .}}
+
+    <div class="mb-3">
+      <label for="formGroupExampleInput" class="form-label"><b>Username</b></label>
+      <input type="text" name="name" class="form-control"  placeholder="Username" value="{{range .User}}{{.Name}}{{end}}" required>
+    </div>
+     <div class="mb-3">
+      <label for="formGroupExampleInput" class="form-label"><b>Email</b></label>
+      <input type="email" name="email" class="form-control"  placeholder="xyz@gyz.com" value="{{range .User}}{{.Email}}{{end}}"  required>
+    </div>
+    <div class="mb-3">
+      <label for="formGroupExampleInput" class="form-label"><b>Linkedin URL</b></label>
+      <input type="link" name="linkedin" class="form-control" value="{{range .User}}{{.Linkedin}}{{end}}" >
+    </div>
+    <div class="mb-3">
+      <label for="formGroupExampleInput" class="form-label"><b>Facebook URL</b></label>
+      <input type="link" name="facebook" class="form-control" value="{{range .User}}{{.Facebook}}{{end}}"  >
+    </div>
+    <div class="mb-3">
+      <label for="formGroupExampleInput" class="form-label"><b>Instagram URL</b></label>
+      <input type="link" name="instagram" class="form-control" value="{{range .User}}{{.Instagram}}{{end}}" >
+    </div>
+    <div class="mb-3">
+      <label for="formGroupExampleInput" class="form-label"><b>Twitter URL</b></label>
+      <input type="link" name="twitter" class="form-control" value="{{range .User}}{{.Twitter}}{{end}}" >
+    </div>
+    <div class="mb-3">
+      <label for="formGroupExampleInput" class="form-label"><b>Youtube URL</b></label>
+      <input type="link" name="youtube" class="form-control" value="{{range .User}}{{.Youtube}}{{end}}" >
+    </div>
+    <div class="mb-3">
+      <label for="formGroupExampleInput" class="form-label"><b>Reddit URL</b></label>
+      <input type="link" name="reddit" class="form-control" value="{{range .User}}{{.Reddit}}{{end}}" >
+    </div>
+    <div class="mb-3">
+      <label for="formGroupExampleInput" class="form-label"><b>Personal Website</b></label>
+      <input type="link" name="website" class="form-control" value="{{range .User}}{{.Personal}}{{end}}" >
+    </div>
+        <div class="mb-3 center">
+          <input type="submit" class="btn btn-outline-primary rounded-pill" value="Reset">
+    </div>
+    </form>
+  </div>
+</div>
+</main>
+{{template "footer" .}}
+{{end}}

@@ -1,0 +1,36 @@
+{{define "yield"}}
+{{template "adminheader" .}}
+
+<br><br>
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/simplemde/latest/simplemde.min.css">
+<script src="https://cdn.jsdelivr.net/simplemde/latest/simplemde.min.js"></script>
+<style>
+
+
+</style>
+<main class="container py-5 my-4 " style="min-height: 100%;min-height: 100vh;">
+<div class="p-5  bg-light rounded d-row">
+<h4>Your blogs {{range .User}}{{.Name}}{{end}}</h4>
+
+
+<br>
+<h5>Blogs written:-</h5>
+<div class="p-md-2">
+    <ul class="list-group">
+    {{range .blogs}}
+  <li class="list-group-item"><h5>{{.Title}}</h5>{{.Blogdescription}}<br>
+  <a class="btn p-2 mt-1 btn-outline-primary rounded-pill right btn-sm " href="/edit/{{.Slug}}">Edit</a>
+    <a class="btn p-2 mt-1 btn-outline-warning rounded-pill right btn-sm ">Delete</a>
+
+  </li>
+  
+  {{end}}
+</ul>   
+</div>
+<hr>
+  
+</div>
+</main>
+{{template "footer" .}}
+{{end}}

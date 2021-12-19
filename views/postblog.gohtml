@@ -1,0 +1,71 @@
+{{define "yield"}}
+{{template "adminheader" .}}
+
+<br><br><br>
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/simplemde/latest/simplemde.min.css">
+<script src="https://cdn.jsdelivr.net/simplemde/latest/simplemde.min.js"></script>
+<style>
+
+
+</style>
+<div class="container">
+
+  <form
+   enctype="multipart/form-data"
+      action="/postblog"
+      method="post"
+  >
+    {{ .csrfField }}
+    {{template "messages" .}}
+
+    <div class="mb-3">
+      <label for="formGroupExampleInput" class="form-label"><b>Blog Heading</b></label>
+      <input type="text" name="title" class="form-control" id="formGroupExampleInput" placeholder="Blog heading must be unique" required>
+    </div>
+    <div class="mb-3">
+      <label for="formGroupExampleInput" class="form-label"><b>Tags</b></label>
+      <small>Use <kbd>Comma ,</kbd> to add tags new tags can be regenerated:- search for <a href="#">tags</a></small>
+      <input type="text" name="tags" class="form-control "  placeholder="paytm,ipo,finance comma seperated :- #paytm #ipo #finance" required>
+    </div>
+   
+    <div class="mb-3">
+      <label for="formGroupExampleInput" class="form-label"><b>Short Description</b></label>
+      <textarea class="form-control" name="description" cols="3" rows="3" placeholder="Short description of blog which will be used for meta info and sharing info" required></textarea>
+    </div>
+
+    <div class="mb-3">
+      <label for="formFileSm" class="form-label"><b>Banner image must be good quality</b></label>
+      <input class="form-control  form-control-sm" name="banner" id="formFileSm" type="file" required>
+    </div>
+
+    <div class="mb-3">
+      <label for="formGroupExampleInput" class="form-label content"><b>Content</b></label>
+      <p><small>Go to <a href="https://stackedit.io/app#"> MArkdown writer </a> write there and paste here</small></p>
+      <small></small>
+      <textarea class="form-control" name="content" id="MyID" cols="30" rows="30" required></textarea>
+    </div>
+    <div class="mb-3 center">
+          <input type="submit" class="btn btn-outline-primary rounded-pill" value="Submit">
+    </div>
+
+</form>
+
+</div>
+<script src="https://unpkg.com/tagin/dist/js/tagin.min.js"></script>
+  <script>
+      tagin(document.querySelector('.tagin'))
+
+  </script>
+<script>
+var simplemde = new SimpleMDE({ 
+element: document.getElementById("MyID") 
+});
+simplemde.value("start typing....");
+
+for (const el of document.querySelectorAll('.tagin')) {
+tagin(el)
+}
+</script>
+{{end}}
+
